@@ -1,31 +1,16 @@
-import {
-  MongoClient,
-  ObjectId,
-} from "https://deno.land/x/mongo@v0.12.1/mod.ts";
-const client = new MongoClient();
-client.connectWithUri("mongodb://localhost:27017");
+import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+const router = new Router();
 
-// Defining schema interface
-interface UserSchema {
-  _id: { $oid: string };
-  username: string;
-  password: string;
-}
+router
+  .get("/", (context) => {
+    context.response.body = "Welcome to / route";
+  })
+  .get("/anything", (context) => {
+    context.response.body = "Welcome to /anything route";
+  })
 
-try {
-  const db = client.database("test");
-  const users = db.collection<UserSchema>("users");
+const app = new Application();
+app.use(router.routes());
+app.use(router.allowedMethods());
 
-  // const user1 = await users.insertOne({
-  //   username: "user1",
-  //   password: "pass1",
-  // });
-
-  const foundUser = await users.findOne({ username: "user1" });
-  if (foundUser) {
-    console.log(foundUser); // returns full document (if found) { _id: { "$oid": "5f85b594006a29e1009d9053" }, username: "user1", password: "pass1" }
-  }
-} catch (e) {
-  console.error(e);
-}
-
+await app.listen({ port: 8000 });
