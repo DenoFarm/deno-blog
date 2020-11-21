@@ -1,5 +1,5 @@
 export const parseBody = (body) => {
-  let tempBodyValue = {};
+  let tempBodyValue= {};
   if(body.type==="form"){
       for (const [key, value] of body.value) {
           tempBodyValue[key] = value;

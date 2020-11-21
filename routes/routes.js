@@ -1,8 +1,8 @@
 import { Router } from "https://deno.land/x/oak@v6.3.2/mod.ts";
-import { handle} from "../utils/handlebars.ts";
 import { create, verify, decode } from "https://deno.land/x/djwt@v1.9/mod.ts";
 import { config } from "https://deno.land/x/dotenv@v1.0.1/mod.ts";
-
+import { handle} from "../utils/handlebars.js";
+import { signUp } from "../controllers/authControllers.js";
 
 const JWT_PARAMS = {
   JWT_KEY: config().SECRET_JWT_AUTH_KEY,
@@ -29,5 +29,9 @@ router
     }
     context.response.body = "No token in cookies";
   })
+  .get("/signup", async (context) => {
+    context.response.body = await handle.renderView('tutorials_list')
+  })
+  .post("/signup", signUp)
 
 export { router };
