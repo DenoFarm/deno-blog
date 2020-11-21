@@ -1,7 +1,7 @@
-import { Router } from "https://deno.land/x/oak/mod.ts";
+import { Router } from "https://deno.land/x/oak@v6.3.2/mod.ts";
 import { handle} from "../utils/handlebars.ts";
 import { create, verify, decode } from "https://deno.land/x/djwt@v1.9/mod.ts";
-import { config } from "https://deno.land/x/dotenv/mod.ts";
+import { config } from "https://deno.land/x/dotenv@v1.0.1/mod.ts";
 
 
 const JWT_PARAMS = {
