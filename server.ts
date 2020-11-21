@@ -1,6 +1,9 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 import { create, verify, decode } from "https://deno.land/x/djwt@v1.9/mod.ts"
+import { Handlebars } from 'https://deno.land/x/handlebars/mod.ts'
+
+const handle = new Handlebars();
 
 const JWT_PARAMS = {
   JWT_KEY: config().SECRET_JWT_AUTH_KEY,
@@ -11,6 +14,9 @@ const JWT_PARAMS = {
 const router = new Router();
 
 router
+  .get('/', async (context) => {
+    context.response.body = await handle.renderView('tutorials_list', {name : "Shyngys"})
+  })
   .get("/newJWT", async (context) => {
     let jwt = await create({ alg: "HS512", typ: "JWT" }, { username: "username" },  JWT_PARAMS.JWT_KEY);
     context.response.body = jwt;
