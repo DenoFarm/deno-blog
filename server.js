@@ -5,5 +5,8 @@ import { router } from "./routes/routes.js";
 const app = new Application();
 app.use(router.routes());
 app.use(router.allowedMethods());
+app.addEventListener('error', event => {
+  console.log(event.error);
+})
 console.log("Server is running 🦕")
-await app.listen({ port: 8000 });
+app.listen({ port: 8000 });

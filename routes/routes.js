@@ -32,6 +32,9 @@ router
   .get("/signup", async (context) => {
     context.response.body = await handle.renderView('tutorials_list')
   })
-  .post("/signup", signUp)
+  .post("/signup", async (context) => {
+    console.log(JSON.stringify(context.request));
+    context.response.redirect("/");
+  });
 
 export { router };
