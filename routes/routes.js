@@ -33,7 +33,7 @@ router
     context.response.body = await handle.renderView('tutorials_list')
   })
   .post("/signup", async (context) => {
-    console.log(JSON.stringify(context.request));
+    console.log(context);
     context.response.redirect("/");
   });
 
