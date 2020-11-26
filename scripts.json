@@ -2,8 +2,17 @@
   "$schema": "https://deno.land/x/denon/schema.json",
   "scripts": {
     "start": {
-      "cmd": "deno run app.ts",
-      "desc": "run my app.ts file"
+      "cmd": "deno run server.js",
+      "desc": "run my server.js file",
+
+      "allow": [
+        "read",
+        "write",
+        "net",
+        "plugin",
+        "env"
+      ],
+      "unstable": true
     }
   }
 }
