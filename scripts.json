@@ -13,6 +13,16 @@
         "env"
       ],
       "unstable": true
+    },
+
+    "watcher": {
+      "interval": 350,
+      "exts": ["js", "jsx", "ts", "tsx", "json"],
+      "fmt": true
+    },
+
+    "logger": {
+      "quiet": false
     }
   }
 }
