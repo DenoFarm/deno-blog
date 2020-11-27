@@ -1,6 +1,6 @@
-import { Application, Router } from "https://deno.land/x/oak@v6.3.2/mod.ts";
-import { renderFileToString } from "https://deno.land/x/dejs@0.9.3/mod.ts";
-import { multiParser } from 'https://deno.land/x/multiparser@v2.0.3/mod.ts'
+import { Application, Router } from "./dependencies.js";
+import { renderFileToString }  from "./dependencies.js";
+import { multiParser }         from "./dependencies.js";
 
 
 const app = new Application();
