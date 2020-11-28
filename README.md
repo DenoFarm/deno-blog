@@ -1,3 +1,4 @@
+<img align="right" src="https://github.com/DenoFarm/deno-blog/blob/main/logo/deno-blog-logo.svg" height="150px">
 A blog that you can set up just like Ghost (uses Node JS).
 
 Powered by Deno JS.
