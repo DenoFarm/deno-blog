@@ -17,7 +17,7 @@
 
     "watcher": {
       "interval": 350,
-      "exts": ["js", "jsx", "ts", "tsx", "json"],
+      "exts": ["js", "jsx", "ts", "tsx", "json", "ejs"],
       "fmt": true
     },
 
