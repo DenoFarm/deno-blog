@@ -1,12 +1,14 @@
-import { Application, Router, send } from "./dependencies.js";
-import { renderFileToString }  from "./dependencies.js";
+import { 
+  Application, 
+  Router, 
+  send 
+}                              from "./dependencies.js";
 import { multiParser }         from "./dependencies.js";
-
 import {
   viewEngine,
   engineFactory,
   adapterFactory
-} from "https://deno.land/x/view_engine@v1.4.5/mod.ts";
+}                              from "./dependencies.js";
 
 
 const ejsEngine = await engineFactory.getEjsEngine();
@@ -53,6 +55,11 @@ router
     context.response.redirect("/")
   });
 
+/*
+When I enable lines below it gives an error when I try to enable static files.
+When I disable no error and pages work too.
+I think it's a bug of oak.
+*/
 // app.addEventListener('error', event => {
 //   console.log(event.error);
 // });
